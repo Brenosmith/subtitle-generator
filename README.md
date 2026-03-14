@@ -3,7 +3,7 @@ Generate subtitles from audio or video files using OpenAI's Speech-to-Text API.
 
 This project uses FFmpeg to preprocess video input into a smaller speech-oriented audio format before sending it for transcription. The goal is to keep the workflow simple while reducing upload size and end-to-end latency.
 
-API reference: [OpenAI Whisper models and supported languages](https://github.com/openai/whisper#available-models-and-languages)
+API reference: [OpenAI Whisper model](https://github.com/openai/whisper?tab=readme-ov-file#whisper)
 
 ## Quick setup (Windows)
 
