@@ -47,3 +47,23 @@ python source\main.py
 ```
 
 The output file will be generated as `source/subtitle.srt`.
+
+## Technical choices
+
+### Why use 16 kHz, OGG/Opus, and mono audio?
+
+1. 16 kHz sample rate
+    - Human speech is mostly concentrated in lower frequencies, so 16 kHz is usually enough for accurate speech transcription.
+    - Compared to 44.1 kHz or 48 kHz, 16 kHz reduces the amount of audio data significantly, which can decrease upload time.
+    - Smaller uploads often reduce end-to-end latency, especially on slower connections.
+
+2. OGG container with Opus codec
+    - Opus is a modern codec optimized for speech and low-bitrate streaming.
+    - It provides very good intelligibility at small file sizes, helping reduce transfer time without a large quality penalty.
+    - The transcription API accepts OGG/Opus, so this is a practical format for this workflow.
+
+3. Mono (single channel)
+    - Mono stores one channel instead of two, so file size is roughly half of equivalent stereo audio.
+    - For speech transcription, stereo is usually unnecessary unless channel separation carries important information.
+
+In short, this configuration is a trade-off: lower file size and faster transfer, while preserving enough speech quality for reliable subtitles.

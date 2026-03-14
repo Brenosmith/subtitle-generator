@@ -25,6 +25,8 @@ try:
         response_format="srt",
         prompt=context_prompt
     )
+except Exception as e:
+    print(f"An error occurred: {e}")
 finally:
     if audio is not None:
         audio.close()  # Ensure the audio buffer is closed after use
@@ -33,4 +35,3 @@ print(transcription)
 
 with open(subtitle_path, "w", encoding="utf-8") as srt_file:
     srt_file.write(transcription)
-
